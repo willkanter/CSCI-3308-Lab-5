@@ -101,7 +101,7 @@ function loadStatsPage(){
 function loadPlayersPage(){
 	var tags = "";
 	for(var i = 0; i < players.length; i++){
-		tags += '<a class = "dropdown-item" style= "diplay:block" href = # style button onclick="selectPlayerButton('+i +')">' + players[i].name +'</button></a><br/>';
+		tags += '<a class = "dropdown-item" style= "diplay:block" href = # button onclick="selectPlayerButton('+i +')">' + players[i].name +'</button></a><br/>';
 	}
 	document.getElementById("player_selector").innerHTML = tags;
 }
@@ -115,15 +115,15 @@ function selectPlayerButton(button_num){
 	document.getElementById("p_yards").innerHTML = players[button_num].pass_yards;
 	let totalPYards = parseInt(players[button_num].pass_yards);
 	let games = parseInt(players[button_num].games_played);
-	let avgPYards = totalPYards / games;
+	let avgPYards = Math.floor(totalPYards / games);
 	document.getElementById("avg_p_yards").innerHTML = avgPYards;
 	document.getElementById("r_yards").innerHTML = players[button_num].rushing_yards;
 	let totalRYards = parseInt(players[button_num].rushing_yards);
-	let avgRYards = totalRYards / games;
+	let avgRYards = Math.floor(totalRYards / games);
 	document.getElementById("avg_r_yards").innerHTML = avgRYards;
 	document.getElementById("rec_yards").innerHTML = players[button_num].receiving_yards;
 	let totalRecYards = parseInt(players[button_num].receiving_yards);
-	let avgRecYards = totalRecYards / games;
+	let avgRecYards = Math.floor(totalRecYards / games);
 	document.getElementById("avg_rec_yards").innerHTML = avgRecYards;
 
 }
