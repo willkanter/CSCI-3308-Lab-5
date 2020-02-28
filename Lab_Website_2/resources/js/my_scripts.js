@@ -67,6 +67,8 @@ function loadStatsPage(){
 	for(var i = 2; i < x.rows.length; i++){
 		var homeScore = parseInt(x.rows[i].cells[2].innerHTML);
 		var oppScore = parseInt(x.rows[i].cells[3].innerHTML);
+		console.log("Colorado: " + homeScore);
+		console.log("Opponent: " + oppScore);
 		var winner = "";
 		if(homeScore > oppScore){
 			winner = "Colorado";
@@ -76,6 +78,7 @@ function loadStatsPage(){
 			winner = x.rows[i].cells[1].innerHTML;
 			numOfLosses++;
 		}
+		console.log(winner);
 		document.getElementById("stats_table").rows[i].cells[4].innerHTML = winner;
 	}
 	document.getElementById("wins").innerHTML = numOfWins;
